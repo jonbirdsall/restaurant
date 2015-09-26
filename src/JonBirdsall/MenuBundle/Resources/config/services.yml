@@ -1,0 +1,4 @@
+services:
+#    jon_birdsall_menu.example:
+#        class: JonBirdsall\MenuBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

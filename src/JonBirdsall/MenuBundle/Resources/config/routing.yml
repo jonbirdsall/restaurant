@@ -1,0 +1,3 @@
+jon_birdsall_menu_item:
+    path:     /
+    defaults: { _controller: JonBirdsallMenuBundle:Default:index }

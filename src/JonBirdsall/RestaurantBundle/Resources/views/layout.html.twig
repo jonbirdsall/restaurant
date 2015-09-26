@@ -1,0 +1,104 @@
+{# src/JonBirdsall/RestarauntBundle/Resources/views/Default/layout.html.twig #}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>{% block title %}Restaraunt Theme{% endblock title %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap -->
+<link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet" media="screen">
+
+{% block head %}{% endblock head %}
+<style>
+
+</style>
+</head>
+
+<body>
+
+{% block body %}
+    <div class="container-fluid" id="wrapper">
+        <header style="min-height: 100px">
+            <div class="row">
+                <div class="col-xs-8" id="logo"><a href="{{ path('restaurant_main') }}">
+                        {% image '@JonBirdsallRestaurantBundle/Resources/public/images/dragon.png' %}
+                            <img src="{{ asset_url }}" alt="dragon" />
+                        {% endimage %}</a></div>
+                <div class="col-xs-2" id="address">Address and Phone here</div>
+                <div class="col-xs-2" id="hours">Hours here</div>
+            </div>
+        </header>
+        <div class="row">
+            <div class="col-xs-3">
+                <nav>
+                    <ul class="nav nav-pills nav-stacked" id="main-nav">
+                        {% block main_nav_items %}
+                            <li role="presentation"><a href="{{ path('restaurant_main') }}">Home</a></li>
+                            <li role="presentation"><a href="{{ path('restaurant_menu') }}">Menu</a></li>
+                            <li role="presentation"><a href="{{ path('restaurant_location') }}">Location</a></li>
+                            <li role="presentation"><a href="{{ path('restaurant_reviews') }}">Reviews</a></li>
+                            <li role="presentation"><a href="{{ path('restaurant_contact') }}">Contact Us</a></li>
+                            {% endblock main_nav_items %}
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-xs-9" id="content" style="min-height: 900px">
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+        {% block footer %}
+        <footer style="min-height: 100px">
+            <div class="row">
+                <div class="col-xs-2">
+                </div>
+                <div class="col-xs-8">
+                    <ul class="nav-sidebar nav-stacked" id="footer-nav">
+                        {% block footer_nav_items %}
+                            <li role="presentation"><a href="{{ path('restaurant_main') }}">Home</a></li>
+                            <li role="presentation"><a href="{{ path('restaurant_menu') }}">Menu</a></li>
+                            <li role="presentation"><a href="{{ path('restaurant_location') }}">Location</a></li>
+                            <li role="presentation"><a href="{{ path('restaurant_reviews') }}">Reviews</a></li>
+                            <li role="presentation"><a href="{{ path('restaurant_contact') }}">Contact Us</a></li>
+                            {% endblock footer_nav_items %}
+                    </ul>
+                </div>
+                <div class="col-xs-2">
+                </div>
+            </div>
+        </footer>
+        {% endblock footer %}
+    </div>
+{% endblock body %}
+{% javascripts '@BraincraftedBootstrapBundle/Resources/js/*' output='js/combined.js' %}
+<script src="{{ asset_url }}"></script>
+<!-- JavaScript plugins (requires jQuery) -->
+<script src="//code.jquery.com/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+
+<!-- Optionally enable responsive features in IE8 -->
+<script src="js/respond.js"></script>
+{% endjavascripts %}
+
+{% javascripts '@JonBirdsallRestaurantBundle/Resources/public/js/*' output='js/jbrest.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% javascripts '@JonBirdsallMenuBundle/Resources/public/js/*' output='js/jbmenu.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% block scripts %}
+    <script>
+    var route = location.pathname.split("/")[2];
+    if(route !== ''){
+        $('li a[href^="/app_dev.php/' + route + '"]').parent().addClass('active');
+    } else {
+        $('nav li').first().addClass('active');
+    }
+    </script>
+{% endblock scripts %}
+</body>
+</html>

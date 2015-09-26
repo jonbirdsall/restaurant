@@ -1,0 +1,19 @@
+restaurant_main:
+    path:     /
+    defaults: { _controller: JonBirdsallRestaurantBundle:Default:index }
+
+restaurant_menu:
+    path:     /menu
+    defaults: { _controller: JonBirdsallRestaurantBundle:Default:menu }
+    
+restaurant_location:
+    path:     /location
+    defaults: { _controller: JonBirdsallRestaurantBundle:Default:location }
+    
+restaurant_reviews:
+    path:     /reviews
+    defaults: { _controller: JonBirdsallRestaurantBundle:Default:reviews }
+    
+restaurant_contact:
+    path:     /contact
+    defaults: { _controller: JonBirdsallRestaurantBundle:Default:contact }

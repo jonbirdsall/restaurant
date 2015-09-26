@@ -1,0 +1,11 @@
+jon_birdsall_menu:
+    resource: "@JonBirdsallMenuBundle/Resources/config/routing.yml"
+    prefix:   /menu/item
+
+jon_birdsall_restaurant:
+    resource: "@JonBirdsallRestaurantBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
